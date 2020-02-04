@@ -1,0 +1,73 @@
+<!-- <mat-sidenav #rightSidenav mode="side" class="rightSidenav" [fixedInViewport]="true" [fixedTopGap]="250">
+    <i (click)="sidenavService.close()" style="cursor: pointer;" class="material-icons float-right">
+        close
+    </i>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    your Selected Item
+                </mat-panel-title>
+                <mat-panel-description>
+                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                    <table *ngIf="item" class="table table-borderless" >
+                        <tr>
+                            <td>{{item.item}}</td>
+                            <td>{{item.prize}}</td>
+                            <td>{{item.description}}</td>
+                        </tr>
+                    </table>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <table class="table table-borderless">
+            
+        <tr *ngFor="let item of itemList">
+            <span *ngIf="item.count" matBadge="{{item.count}}" matBadgeOverlap="false"></span>
+            <td>{{item.item}}</td>
+            <td>{{item.prize}}</td>
+            
+        </tr>
+        <tr *ngIf="total">
+            <td>{{total}}</td>
+        </tr>
+    </table>
+</mat-sidenav> -->
+<!-- <div class="">
+<table class="table table-borderless">
+    <th>Item</th>
+    <th>Prize</th>
+    <tr *ngFor="let item of itemList">
+        <div class="s-left"><img class="br-3" src="{{item.image}}" alt="Menu Image"></div>
+        <div class="s-right">
+            <td>{{item.item}}</td>
+            <td>{{item.prize | currency:'INR':true}}</td>
+        </div>
+        
+    </tr>
+    <tr *ngIf="total">
+        <td>{{total}}</td>
+    </tr>
+</table>
+</div> -->
+
+<div *ngFor="let item of itemList">
+        <div class="sided-90x mb-30 ">
+                <div class="s-left"><img class="br-3" src="{{item.image}}" alt="Menu Image"></div>
+                <div class="s-right">
+                  <h5 class="mb-10"><b>{{item.item}}</b><b class="color-primary float-right">{{item.prize | currency:'INR':true}}</b>
+                  </h5>
+                  <div class="pr-70">
+                    <p class="float-left">{{item.description}}</p>
+                  </div>
+                <a [class.active]="toggleActive" (click)="count = count + 1" style="cursor: pointer;" class="float-right">
+                    <i class="material-icons">
+                        add_circle_outline
+                    </i></a>
+                </div>
+                <span class="float-right">{{count}} </span><br/><span class="font-weight-bold"></span>Total
+                <span class="float-right">{{count * item.prize | currency:'INR':true}}</span>
+        </div>
+</div>

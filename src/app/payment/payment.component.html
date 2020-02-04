@@ -1,0 +1,14 @@
+<div style="margin-top: 30px;" class="container">
+    <div class="row">
+        <input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
+        <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
+    </div>
+    <br/>
+    <div class="row">
+       <div [hidden]="!finalAmount" id="paypal-checkout-btn"></div>
+       <div *ngIf="!finalAmount">
+           <span style="color: red;">Please Enter Some Amount To Pay</span>
+       </div>
+
+    </div>
+</div>

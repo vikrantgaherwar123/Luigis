@@ -1,0 +1,36 @@
+<div style="margin-top: 1%;" class="list-group text-center container">
+
+
+  <form class="example-form">
+    <span class="font-weight-bold">Search For An Employee:</span>&nbsp;
+    <mat-form-field appearance="outline" >
+      <input type="text" placeholder="Employee" aria-label="Number" matInput [formControl]="myControl"
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let item of filteredOptions | async" [value]="item.name">
+          {{item.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+
+  <table class="table table-borderless">
+    <th>Name</th>
+    <th>Address</th>
+    <tr *ngFor="let item of filteredOptions | async">
+      <td>
+        {{item.name}}
+      </td>
+      <td>
+        {{item.address}}
+      </td>
+      <td>
+        <button (click)="openDialog(item)" class="btn btn-primary">View Detail</button>
+      </td>
+    </tr>
+  </table>
+  <!-- <app-about></app-about> -->
+</div>
+
+<app-about></app-about>

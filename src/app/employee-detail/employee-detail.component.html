@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="table table-borderless">
+        <tr>
+            <td>
+                <p><b>Employee Name</b></p>
+            </td>
+            <td>
+                <p>{{data.data.name}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><b>Employee Address</b></p>
+            </td>
+            <td>
+                <p>{{data.data.address}}</p>
+            </td>
+        </tr>
+        <tr *ngIf="data.data.number">
+            <td>
+                <p><b>Employee Contact Number</b></p>
+            </td>
+            <td>
+                <p>{{data.data.number}}</p>
+            </td>
+        </tr>
+        <tr *ngIf="data.data.email">
+            <td>
+                <p><b>Employee Email</b></p>
+            </td>
+            <td>
+                <p>{{data.data.email}}</p>
+            </td>
+        </tr>
+    </div>
+    <!-- &nbsp;
+    <h4></h4>
+    <h4></h4>
+    <h4></h4> -->
+
+</div>

@@ -1,0 +1,42 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+a.add-cart-btn:hover{
+color: white;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%236c757d' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%236c757d' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+.title-bottom {border-bottom: 2px solid #BF55EC; width: 10%; margin:auto; margin-bottom:1em}
+.story-block {margin:1em 0;padding:0; }/*padding:1em;*/
+.card-body {color: #555;}
+.story-block p {font-family: Comic Sans MS, cursive, sans-serif} 
+.padding-0{padding:0;}
+
+.example-container {
+width: 400px;
+height: 200px;
+margin: 12px;
+border: 1px solid #555;
+}
+
+
+.rightSidenav_toggle {
+  width: 300px;
+  height: 50px;
+  background-color: #eee;
+}
+
+
