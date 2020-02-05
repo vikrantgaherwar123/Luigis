@@ -42,12 +42,40 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getPDFDATA()
+    var x = 78968
+    var rev = 0;
+    var rem = 0;
+    while(x !== 0 ){
+      rev *= 10;
+      rem = x % 10;
+      rev = rem + rev ;
+      x = x / 10 ^ 0;
+    }
+    console.log(rev);
+
+    
+    for (let i = 100; i < 1000; i++) {
+      var a = 0
+      var sum = 0;
+      var j
+      j = i
+
+      while (j !== 0) {
+        a = j % 10;
+        sum = sum + a * a * a;
+        j = j / 10 ^ 0;
+      }
+
+      if (sum == i) {
+        console.log(i);
+        j = 0
+      }
+    }
+   
+
+
   }
 
-  getPDFDATA() {
-    
-  };
 
   loginForm(){
     this.submitted = false;
