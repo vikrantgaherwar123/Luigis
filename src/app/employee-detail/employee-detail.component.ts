@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-employee-detail',
@@ -7,11 +8,33 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./employee-detail.component.css']
 })
 export class EmployeeDetailComponent implements OnInit {
+  active: boolean = false;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data) { }
+  constructor() {
+    // $(document).ready(function(){  
+    //   $("#mydiv").hover(function(){  
+    //       $("#mydiv").addClass("getClass")
+    //   });
+      
+    //   $("#myAboutdiv1").hover(function () {
+    //     $("#mydiv1").removeClass("getClass")
+    //   });
+
+    //   $("#mydiv1").hover(function () {
+    //     $("#mydiv1").addClass("getClass")
+    //   });
+
+    //   $("#myServicediv1").hover(function () {
+    //     $("#mydiv").removeClass("getClass")
+    //   });
+    // }) 
+  }
 
   ngOnInit() {
-    console.log(this.data);
   }
+
+  ngDoCheck() {
+    
+  };
 
 }

@@ -6,15 +6,17 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth-guard.service';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/detail',
     pathMatch: 'full'
   },
+  {path:"detail",component:EmployeeDetailComponent },
   {path:"login",component:LoginComponent },
   {path:"dashboard",component:DashboardComponent},//,canActivate: [AuthGuard] 
   {path:"payment",component:PaymentComponent,canActivate: [AuthGuard] },

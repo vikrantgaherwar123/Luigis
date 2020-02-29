@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthService, private route: Router, private formBuilder: FormBuilder, private dialog: MatDialog,
     private service: GetEmployeesService) {
     this.signIn = this.formBuilder.group({
-      password: ['', [Validators.required,Validators.minLength(6), Validators.pattern(this.pwdPattern)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(this.pwdPattern)]],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
     this.loginform = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required,Validators.pattern(this.pwdPattern)]],
+      password: ['', [Validators.required, Validators.pattern(this.pwdPattern)]],
     });
   }
 
@@ -45,15 +45,15 @@ export class LoginComponent implements OnInit {
     var x = 78968
     var rev = 0;
     var rem = 0;
-    while(x !== 0 ){
+    while (x !== 0) {
       rev *= 10;
       rem = x % 10;
-      rev = rem + rev ;
+      rev = rem + rev;
       x = x / 10 ^ 0;
     }
     console.log(rev);
 
-    
+
     for (let i = 100; i < 1000; i++) {
       var a = 0
       var sum = 0;
@@ -71,18 +71,54 @@ export class LoginComponent implements OnInit {
         j = 0
       }
     }
-   
+    let l = this.palindrome('abbbaabbba');
+    console.log(l);
+    console.log('-----------------------------------------------------------------------------');
+    let c = 0;
+    while (c < 10) {
+      c++
+      console.log(c);
+      if (c == 9) {
+        break;
+      }
+    }
+    console.log('-----------------------------------------------------------------------------');
+
+    let b = 0
+    do {
+      b++
+      console.log(b);
+    }
+    while (b < 10) {
+
+    }
 
 
   }
 
 
-  loginForm(){
+  palindrome(str) {
+    console.log(str.split('').sort().join(''));
+
+    var len = str.length;
+    var mid = Math.floor(len / 2);
+
+    for (var i = 0; i < mid; i++) {
+      if (str[i] !== str[len - 1 - i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+
+  loginForm() {
     this.submitted = false;
     this.loginFormText = !this.loginFormText;
-    if(!this.loginFormText){
+    if (!this.loginFormText) {
       this.loginText = 'Login'
-    }else{
+    } else {
       this.loginText = 'Sign In'
     }
     this.loginform.reset();
@@ -97,12 +133,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true
-    if(this.signIn.value.password !== this.signIn.value.confirmPassword){
+    if (this.signIn.value.password !== this.signIn.value.confirmPassword) {
       this.message = "Password And Confirm Password Must be same";
       MessageBox.show(this.dialog, this.message, "");
       return;
     }
-    if(this.signIn.valid){
+    if (this.signIn.valid) {
       var obj = {
         firstName: this.signIn.value.firstName,
         lastName: this.signIn.value.lastName,
@@ -112,8 +148,8 @@ export class LoginComponent implements OnInit {
       }
       this.service.putUser(obj).subscribe((data: any) => {
         console.log(data);
-        if(data.code == 1){
-          localStorage.setItem('email',obj.email);
+        if (data.code == 1) {
+          localStorage.setItem('email', obj.email);
           this.submitted = !this.submitted
           this.loginFormText = !this.loginFormText;
           this.message = data.mssg;
@@ -127,7 +163,7 @@ export class LoginComponent implements OnInit {
         }
       })
     }
-    
+
     // stop here if form is invalid
     return this.signIn.invalid;
   }
@@ -144,7 +180,7 @@ export class LoginComponent implements OnInit {
       //   this.route.navigate(["dashboard"]);
       // }
       this.service.login(obj).subscribe((data: any) => {
-        if(data.code == 1){
+        if (data.code == 1) {
           this.service.loginUserType = data
           if (this.auth.isLoggedIn()) {
             this.route.navigate(["dashboard"]);
@@ -156,8 +192,8 @@ export class LoginComponent implements OnInit {
           return false;
         }
       })
-      
-    } 
+
+    }
     // else {
     //   this.message = "Invalid Credentials";
     //   MessageBox.show(this.dialog, this.message, "");

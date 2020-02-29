@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth-guard.service';
 import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
+import { MydirectiveDirective } from './mydirective.directive';
 
 
 
@@ -37,7 +38,8 @@ import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
     ContactComponent,
     SidenavComponent,
     LoginComponent,
-    DialogueBoxComponent
+    DialogueBoxComponent,
+    MydirectiveDirective
   ],
   imports: [
     HttpClientModule,
